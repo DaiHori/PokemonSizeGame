@@ -1,0 +1,32 @@
+version: '3'
+services:
+    api:
+        # Dockerfileの場所
+        build: ./api
+
+        # どのimageを使うか。Dockerfileでimageは作成する。
+        image: k2-drf-image
+
+        # コンテナ名を指定出来る。
+        container_name: k2-api
+
+        # 公開用のポート。ホスト側:コンテナ側を指定
+        # コンテナ側のみ指定も可能だが、その時ホスト側はランダムになる。
+        ports:
+          -  '8000:8000'
+
+        # マウントするパス
+        volumes:
+          -  ./api/:/usr/src/pokemonsizegame/api/
+
+        # dockerコンテナを落とさず起動し続けるようにする
+        tty: true
+    web:
+        build: ./web
+        image: k2-vue-image
+        container_name: k2-web
+        ports:
+          -  '8080:8080'
+        volumes:
+          -  ./web/:/usr/src/pokemonsizegame/web/
+        tty: true
