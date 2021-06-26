@@ -1,0 +1,25 @@
+version: '3'
+services:
+    api:
+        build: ./api
+
+        image: k2-drf-image
+
+        container_name: k2-api
+
+        ports:
+          -  '8000:8000'
+
+        volumes:
+          -  ./api/:/usr/src/pokemonsizegame/api/
+
+        tty: true
+    web:
+        build: ./web
+        image: k2-vue-image
+        container_name: k2-web
+        ports:
+          -  '8080:8080'
+        volumes:
+          -  ./web/:/usr/src/pokemonsizegame/web/
+        tty: true
