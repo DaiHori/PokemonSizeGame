@@ -1,0 +1,22 @@
+    <!DOCTYPE>
+    <html lang='ja'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <table>
+        <tr>
+            <td>REQUEST_IS:</td>
+            <td>{{ message }}</td>
+        </tr>
+            <td>KEY_WORD_IS:</td>
+            <td>{{ key_word }}</td>
+        <tr>
+            <td>
+                <form action="." method="post">{% csrf_token %}
+                <input type='text' id="key_word" name="key_word">
+            </td>
+            <td>
+                <input type="submit" value="送信する">
+                </form>
+            </td>
+        </tr>
+    </table>
