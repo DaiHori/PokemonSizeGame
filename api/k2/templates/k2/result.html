@@ -1,0 +1,31 @@
+    <!DOCTYPE>
+    <html lang='ja'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pokemon Size Game</title>
+    </head>
+    <body>
+    <header>Pokemon Size Game</header>
+    <nav>
+{#        <a href="/about">About</a>#}
+    </nav>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p> <input type="submit" name="returntop" value="TOP" /></p></p>
+        </form>
+    <h1>{{ check }}（答え：{{ a_name_prev }} {{ a_height_prev }}m, {{ b_name_prev }} {{ b_height_prev }}m）</h1>
+
+
+            <h1>あなたは {{ result }} 問連続で正解しました。</h>
+            <h1>あなたは {{ rank }} 級です。</h>
+
+                <form action="" method="post">
+    {% csrf_token %}
+<p> <input type="submit" name="restart" value="もう一度チャレンジ" /></p></p>
+</form>
+
+
+
+
+    </body>
+    </html>

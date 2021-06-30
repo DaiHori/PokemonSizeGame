@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>テストページ</title>
+</head>
+
+<body>
+{#    <form action="/hello/" method="post">#}
+{#        {% csrf_token %}#}
+{#        <input type="text" name="prm" /><input type="submit" />#}
+{#    </form>#}
+
+<form action="" method="post">
+    {% csrf_token %}
+<p>
+<input type="radio" name="userans" value="1" checked="checked" /> {{ a_name }}
+<input type="radio" name="userans" value="2" /> {{ b_name }}
+<input type="radio" name="userans" value="3" /> 同じ
+</p>
+<p><input type="submit" name="prm" value="決定" /></p>
+</form>
+    <h1>Hello {{ msg }} {{count}}!!</h1>
+</body>
+
+</html>
