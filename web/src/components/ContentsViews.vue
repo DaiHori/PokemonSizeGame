@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto mt-2" max-width="1280" height="800">
+  <v-card class="mx-auto mt-2" max-width="1280" height="500">
     <v-layout class="size align-end">
       <v-img src="@/assets/ピカチュウ_なみのり.gif" />
     </v-layout>
@@ -10,6 +10,13 @@
           どっちが大きいかな？
         </p>
       </h2>
+      <span v-for="pokemon in pokemons" :key="pokemon.name"
+        ><h1>{{ pokemon.name }}</h1></span
+      >
+      <br />
+      <span v-for="pokemon in pokemons" :key="pokemon.name"
+        ><h1>{{ pokemon.name }}</h1></span
+      >
     </v-card-text>
     <v-card-actions> </v-card-actions>
 
@@ -22,6 +29,10 @@
 <script>
 export default {
   name: "ContentsViews",
+
+  data: () => ({
+    pokemons: [{ name: "フシギダネ" }],
+  }),
 };
 </script>
 
