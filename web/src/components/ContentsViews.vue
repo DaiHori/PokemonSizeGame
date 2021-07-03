@@ -5,18 +5,29 @@
     </v-layout>
 
     <v-card-text class="text-center">
+      <h1>第{{ $store.state.counter }}問</h1>
+      <br />
       <h2>
         <p class="text-h4 text--primary">
-          どっちが大きいかな？
+          どっちが重いかな？
         </p>
       </h2>
-      <span v-for="pokemon in pokemons" :key="pokemon.name"
-        ><h1>{{ pokemon.name }}</h1></span
-      >
+      <v-row :align="align">
+        <v-col class="text">
+          <v-btn v-for="pokemon in 1" :key="pokemon.name"
+            ><h1>{{ ramdom() }}</h1></v-btn
+          >
+        </v-col>
+      </v-row>
       <br />
-      <span v-for="pokemon in pokemons" :key="pokemon.name"
-        ><h1>{{ pokemon.name }}</h1></span
-      >
+
+      <v-row>
+        <v-col>
+          <v-btn v-for="pokemon in 1" :key="pokemon.name"
+            ><h1>{{ ramdom() }}</h1></v-btn
+          >
+        </v-col>
+      </v-row>
     </v-card-text>
     <v-card-actions> </v-card-actions>
 
@@ -27,11 +38,22 @@
 </template>
 
 <script>
+import POKEMON from "@/common/pokemon";
+
 export default {
   name: "ContentsViews",
 
+  methods: {
+    ramdom: function() {
+      const ary = Math.floor(Math.random() * this.pokemons.length);
+      return this.pokemons[ary].name;
+    },
+    // answer: function() {
+    //     const
+    // }
+  },
   data: () => ({
-    pokemons: [{ name: "フシギダネ" }],
+    pokemons: POKEMON.POKEMONS,
   }),
 };
 </script>
