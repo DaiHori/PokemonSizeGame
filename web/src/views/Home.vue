@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import HeaderViews from "../components/HeaderViews";
-import ContentsViews from "../components/ContentsViews";
-import Footer from "../components/Footer";
+import HeaderViews from "./HeaderViews";
+import ContentsViews from "./ContentsViews";
+import Footer from "./Footer";
 
 export default {
   name: "Home",

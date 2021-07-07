@@ -12,22 +12,9 @@
           どっちが重いかな？
         </p>
       </h2>
-      <v-row :align="align">
-        <v-col class="text">
-          <v-btn v-for="pokemon in 1" :key="pokemon.name"
-            ><h1>{{ ramdom() }}</h1></v-btn
-          >
-        </v-col>
-      </v-row>
+      <Button />
       <br />
-
-      <v-row>
-        <v-col>
-          <v-btn v-for="pokemon in 1" :key="pokemon.name"
-            ><h1>{{ ramdom() }}</h1></v-btn
-          >
-        </v-col>
-      </v-row>
+      <Button />
     </v-card-text>
     <v-card-actions> </v-card-actions>
 
@@ -38,23 +25,14 @@
 </template>
 
 <script>
-import POKEMON from "@/common/pokemon";
+import Button from "@/components/ContentsViewsButton.vue";
 
 export default {
   name: "ContentsViews",
 
-  methods: {
-    ramdom: function() {
-      const ary = Math.floor(Math.random() * this.pokemons.length);
-      return this.pokemons[ary].name;
-    },
-    // answer: function() {
-    //     const
-    // }
+  components: {
+    Button,
   },
-  data: () => ({
-    pokemons: POKEMON.POKEMONS,
-  }),
 };
 </script>
 
