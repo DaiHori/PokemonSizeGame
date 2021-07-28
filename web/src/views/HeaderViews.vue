@@ -1,6 +1,6 @@
 <template>
-  <v-card tile class="mx-auto" max-width="auto" height="1000">
-    <v-toolbar color="indigo" height="150">
+  <v-card tile class="mx-auto" max-width="auto">
+    <v-toolbar color="red" height="150">
       <v-layout class="center">
         <v-toolbar-title>
           <v-img

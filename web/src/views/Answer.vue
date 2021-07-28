@@ -1,22 +1,25 @@
 <template>
   <div>
     <HeaderViews />
-    <ContentsViews />
+    <v-card class="mx-auto mt-2" max-width="1280" height="500">
+      <v-card-text class="text-center">
+        <h1>正解</h1>
+      </v-card-text>
+      <v-card-actions> </v-card-actions>
+    </v-card>
     <Footer />
   </div>
 </template>
 
 <script>
 import HeaderViews from "./HeaderViews";
-import ContentsViews from "./ContentsViews";
 import Footer from "./Footer";
 
 export default {
-  name: "Home",
+  name: "Answer",
 
   components: {
     HeaderViews,
-    ContentsViews,
     Footer,
   },
 };

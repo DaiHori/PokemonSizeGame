@@ -2,8 +2,8 @@
   <v-footer dark padless>
     <v-card color="white" class="flex" flat tile>
       <v-card-title class="black">
-        <v-layout align-center justify-center>
-          <v-btn v-for="item in items" :key="item" icon @click="moveLink">
+        <v-layout justify-center>
+          <v-btn v-for="item in items" :key="item.icon" icon @click="moveLink">
             <v-icon class="position" size="68px">{{ item.icon }}</v-icon>
           </v-btn>
         </v-layout>
