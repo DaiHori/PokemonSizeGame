@@ -2,8 +2,11 @@
   <v-container>
     <v-row>
       <v-col class="text">
-        <v-btn v-for="pokemon in 1" :key="pokemon.name" @click="answer"
-          ><h1>{{ ramdom() }}</h1></v-btn
+        <v-btn v-for="pokemon in 1" :key="pokemon.name" @click="answer1"
+          ><h1>{{ pokemons[pokemon1].name }}</h1></v-btn
+        >
+        <v-btn v-for="pokemon in 1" :key="pokemon.name" @click="answer2"
+          ><h1>{{ pokemons[pokemon2].name }}</h1></v-btn
         >
       </v-col>
     </v-row>
@@ -11,38 +14,56 @@
 </template>
 
 <script>
-import POKEMON from "@/common/pokemon";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "ContentsViewsButton",
 
+  created() {
+    this.pokemon1 = this.random1();
+    this.pokemon2 = this.random1();
+  },
   methods: {
-    ramdom: function() {
-      const ary = Math.floor(Math.random() * this.pokemons.length);
-      return this.pokemons[ary].name;
+    random1: function() {
+      const ary = Math.floor(Math.random() * pokemonAry);
+      return ary;
     },
-    answer: function() {
-      const pokemon1 = this.pokemons.weight;
-      const pokemon2 = this.pokemons.weight;
-
-      if (pokemon1 > pokemon2) {
+    answer1: function() {
+      if (
+        this.pokemons[this.pokemon1].weight >
+        this.pokemons[this.pokemon2].weight
+      ) {
         this.$router.push({
-          name: "/Answer",
+          name: "Answer",
         });
-        if (pokemon1 < pokemon2) {
-          this.$router.push({
-            name: "/Answer",
-          });
-        } else {
-          this.$router.push({
-            name: "IncorrectAnswer",
-          });
-        }
+      } else {
+        this.$router.push({
+          name: "IncorrectAnswer",
+        });
+      }
+    },
+    answer2: function() {
+      if (
+        this.pokemons[this.pokemon1].weight <
+        this.pokemons[this.pokemon2].weight
+      ) {
+        this.$router.push({
+          name: "Answer",
+        });
+      } else {
+        this.$router.push({
+          name: "IncorrectAnswer",
+        });
       }
     },
   },
+  computed: {
+    ...mapState("pokemonAnswer", ["pokemons"]),
+    ...mapGetters("answer", ["pokemonAry"]),
+  },
   data: () => ({
-    pokemons: POKEMON.POKEMONS,
+    pokemon1: "",
+    pokemon2: "",
   }),
 };
 </script>
