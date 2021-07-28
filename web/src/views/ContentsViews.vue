@@ -3,7 +3,7 @@
     <Img />
 
     <v-card-text class="text-center">
-      <h1>第{{ $store.state.counter }}問</h1>
+      <h1>第{{ counter }}問</h1>
       <br />
       <h2>
         <p class="text-h4 text--primary">
@@ -12,7 +12,6 @@
       </h2>
       <Button />
       <br />
-      <Button />
       <Img2 />
     </v-card-text>
     <v-card-actions> </v-card-actions>
@@ -20,6 +19,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Button from "@/components/ContentsViewsButton.vue";
 import Img from "@/components/ContentsViewsImg.vue";
 import Img2 from "@/components/ContentsViewsImg2.vue";
@@ -31,6 +31,9 @@ export default {
     Button,
     Img,
     Img2,
+  },
+  computed: {
+    ...mapState("counter", ["counter"]),
   },
 };
 </script>
